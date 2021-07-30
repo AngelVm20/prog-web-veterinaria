@@ -1,15 +1,19 @@
 package com.veterinaira.backend.models.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class Persona {
-	
-	@Column(name="nombre")
+public abstract class Persona implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "nombre")
 	private String nombre;
-	
-	@Column(name="cedula")
+
+	@Column(name = "cedula")
 	private String cedula;
 
 	public String getNombre() {
@@ -27,6 +31,5 @@ public abstract class Persona {
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
-	
-	
+
 }

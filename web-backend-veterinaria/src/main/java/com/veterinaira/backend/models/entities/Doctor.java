@@ -1,5 +1,7 @@
 package com.veterinaira.backend.models.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,26 +12,25 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="doctor")
-public class Doctor extends Persona{
-	
+@Table(name = "doctor")
+public class Doctor extends Persona implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
-	@Column(name="id_doctor")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_doctor")
 	private Integer idDoctor;
-	
-	@Column(name="licencia")
+
+	@Column(name = "licencia")
 	private String licencia;
-	
-	@Column(name="especialidad")
+
+	@Column(name = "especialidad")
 	private String especialidad;
-	
-	
-	@OneToOne(mappedBy="doctor")
+
+	@OneToOne(mappedBy = "doctor")
 	private Consulta consulta;
-	
-	
 
 	public Doctor() {
 		super();
@@ -71,7 +72,5 @@ public class Doctor extends Persona{
 	public void setConsulta(Consulta consulta) {
 		this.consulta = consulta;
 	}
-	
-	
-	
+
 }

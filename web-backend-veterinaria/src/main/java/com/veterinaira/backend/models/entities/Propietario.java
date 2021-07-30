@@ -1,5 +1,6 @@
 package com.veterinaira.backend.models.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Basic;
@@ -13,24 +14,25 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="propietario")
-public class Propietario extends Persona{
-	
+@Table(name = "propietario")
+public class Propietario extends Persona implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
-	@Column(name="id_propietario")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_propietario")
 	private Integer idPropietario;
-	
-	@Column(name="celular")
+
+	@Column(name = "celular")
 	private String celular;
-	
-	@Column(name="correo")
+
+	@Column(name = "correo")
 	private String correo;
-	
-	@OneToMany(mappedBy="propietario", fetch=FetchType.LAZY) 
+
+	@OneToMany(mappedBy = "propietario", fetch = FetchType.LAZY)
 	private List<mascota> mascotas;
-	
 
 	public Propietario() {
 		super();
@@ -64,8 +66,7 @@ public class Propietario extends Persona{
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
-	
+
 	public List<mascota> getMascotas() {
 		return mascotas;
 	}
@@ -74,5 +75,4 @@ public class Propietario extends Persona{
 		this.mascotas = mascotas;
 	}
 
-	
 }

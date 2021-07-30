@@ -1,5 +1,6 @@
 package com.veterinaira.backend.models.entities;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
@@ -16,43 +17,42 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="consulta")
-public class Consulta {
+@Table(name = "consulta")
+public class Consulta implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
-	@Column(name="id_consulta")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_consulta")
 	private Integer idConsulta;
-	
-	@Column(name="sintoma")
+
+	@Column(name = "sintoma")
 	private String sintoma;
-	
-	@Column(name="diagnostico")
+
+	@Column(name = "diagnostico")
 	private String diagnostico;
-	
-	@Column(name="monto")
+
+	@Column(name = "monto")
 	private float monto;
-	
-	@Column(name="fecha_hora")
+
+	@Column(name = "fecha_hora")
 	private Calendar fechaHora;
 
-	//mappedBy va el nombre del atributo de esta clase[Consulta] en la clase asociada[Receta]
-	@OneToMany(mappedBy="consulta", fetch=FetchType.LAZY) 
-	private List<Receta>recetas;
-	
-	
-	@JoinColumn(name="id_mascota",nullable=false)
-	@OneToOne(fetch=FetchType.LAZY)
+	// mappedBy va el nombre del atributo de esta clase[Consulta] en la clase
+	// asociada[Receta]
+	@OneToMany(mappedBy = "consulta", fetch = FetchType.LAZY)
+	private List<Receta> recetas;
+
+	@JoinColumn(name = "id_mascota", nullable = false)
+	@OneToOne(fetch = FetchType.LAZY)
 	private mascota mascotas;
-	
-	@JoinColumn(name="id_doctor",nullable=false)
-	@OneToOne(fetch=FetchType.LAZY)
+
+	@JoinColumn(name = "id_doctor", nullable = false)
+	@OneToOne(fetch = FetchType.LAZY)
 	private Doctor doctor;
-	
-	
-	
-	
+
 	public Consulta() {
 		super();
 	}
@@ -117,7 +117,5 @@ public class Consulta {
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
-	
-	
-	
+
 }

@@ -1,5 +1,7 @@
 package com.veterinaira.backend.models.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,29 +13,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="recetas")
-public class Receta {
+@Table(name = "recetas")
+public class Receta implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
-	@Column(name="id_receta")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_receta")
 	private Integer idReceta;
-	
-	@Column(name="medicamento")
+
+	@Column(name = "medicamento")
 	private String medicamento;
-	
-	@Column(name="dosis")
+
+	@Column(name = "dosis")
 	private String dosis;
 
-	
-	@JoinColumn(name="id_consulta",referencedColumnName="id_consulta") //se mapea una clave foranea
+	@JoinColumn(name = "id_consulta", referencedColumnName = "id_consulta") // se mapea una clave foranea
 	@ManyToOne
 	private Consulta consulta;
-	
-	
-	
-	
+
 	public Receta(Integer idReceta) {
 		super();
 		this.idReceta = idReceta;
@@ -74,7 +74,5 @@ public class Receta {
 	public void setConsulta(Consulta consulta) {
 		this.consulta = consulta;
 	}
-	
-	
-	
+
 }
