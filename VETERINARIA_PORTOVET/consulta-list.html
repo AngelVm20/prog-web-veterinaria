@@ -17,12 +17,53 @@
     <!-- Fin de menú de opciones -->
     <main class="container">
       <div class="py-5 text-center">        
-        <h2>Consultas realizadas</h2>
-        <p class="lead">Total de Consultas realizadas.</p>        
+        <h2>Consultas Registradas</h2>    
       </div>  
       <section class="py-5 container">
-        <button class="btn btn-success" id="btnAbrir">Abrir</button>
-        <canvas id="rptCosecha" width="640" height="640"></canvas>
+        <table class="table">
+          <thead>
+            <tr>                
+              <th scope="col">Sintoma</th>
+              <th scope="col">Diagnostico</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Monto</th> 
+              <th scope="col">
+                <a href="consulta-form.html" class="btn btn-secondary">Nuevo</a>
+              </th>               
+              <th scope="col"></th>                            
+            </tr>
+          </thead>
+          <tbody id="tblReceta">              
+          </tbody>                        
+        </table>
+
+        <div class="modal fade" id="mdReceta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="lblNombreR"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">               
+                    <label>Medicamento: </label>
+                    <span id="spMedicamento"></span><br>
+                    <label>Dosis: </label>
+                    <span id="spDosis"></span><br>                                                                               
+                    <input type="hidden" id="txtIdDosis">          
+              </div>
+
+
+
+              <div class="modal-footer">
+                <button id="btnEliminar" type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
       </section>      
     </main>
     <footer>
@@ -30,7 +71,7 @@
     <!-- Vincula jQuery con el index.html -->
     <script src="js/jquery-3.6.0.min.js"></script>       
     <script src="js/main.js"></script> 
-    <!--<script src="js/script-cosecha-report.js"></script> -->
+    <script src="js/script-consulta-list.js"></script>
 
 
 
@@ -46,6 +87,6 @@
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
-    <!-- aqui falta el .js de la consulta list-->
+    <script src="js/script-consulta-list.js"></script>
 </body>
 </html>

@@ -1,51 +1,50 @@
 function retrieve(id){
-    alert("entra el retrieve mascotas");
+    alert("entra el retrieve receta");
     $.ajax({  
         type: "GET",
-        url: "http://localhost:8080/mascota/retrieve/" + id,        
+        url: "http://localhost:8080/receta/retrieve/" + id,        
         contentType : "application/json",
         dataType : "json",
         success : function(response){
             console.log(response);    
-            let mascota = response;            
-            $("#lblNombre").html(mascota.numero);
-            $("#spNombre").html(mascota.nombre);
-            $("#spTipo").html(mascota.tipo);
-            $("#spEdad").html(mascota.edad);
-            $("#spGenero").html(mascota.genero);
-            $("#txtIdMascota").val(mascota.idMascota);
+            let receta= response;            
+            $("#lblNombreR").html(receta.numero);
+            $("#spMedicamento").html(receta.medicamento);
+            $("#spDosis").html(receta.dosis);
+
+            $("#txtIdReceta").val(receta.idReceta);
             
         },
 		error : function(err){
 			console.error(err);
 		}
     });
-    alert("sale el retrieve mascotas");
+    alert("sale el retrieve receta");
 } 
 
 
 function show(lista){ 
-    $("#tblPropietario").empty(); 
-    lista.forEach(propietario => {        
-        $("#tblPropietario").append('<tr>'            
-            + '<td>' + propietario.nombre +'</td>'
-            + '<td>' + propietario.cedula +'</td>'
-            + '<td>' + propietario.celular +'</td>'
-            + '<td>' + propietario.correo +'</td>'
+    $("#tblConsulta").empty(); 
+    lista.forEach(consulta => {        
+        $("#tblConsulta").append('<tr>'            
+            + '<td>' + consulta.sintoma +'</td>'
+            + '<td>' + consulta.diagnostico +'</td>'
+            + '<td>' + consulta.fechaHora +'</td>'
+            + '<td>' + consulta.monto +'</td>'
             //Boton de consultar
             + '<td>'
-            + '<button onclick="retrieve('+ propietario.idPropietario +')" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#mdPropietario">Consultar</button>'
+            + '<button onclick="retrieve('+ consulta.idConsulta +')" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#mdConsulta">Consultar</button>'
             + '</td>'                        
         +'</tr>');
     });
 }
 
 function list(){
-    alert("entra la propietario list");
+    alert("entra la consulta list");
     
     $.ajax({        
         type: "GET", 
-        url: "http://localhost:8080/propietario/list",      
+        url: "http://localhost:8080/consulta/list",      
         contentType : "application/json",
         dataType : "json",
         success : function(response){
@@ -67,10 +66,10 @@ function list(){
 }
 
 function del(){
-    let id = $("#txtIdMascota").val();
+    let id = $("#txtIdReceta").val();
     $.ajax({        
         type: "DELETE", 
-        url: "http://localhost:8080/mascota/delete/" + id,       
+        url: "http://localhost:8080/receta/delete/" + id,       
         contentType : "application/json",        
         success : function(response){
             console.log(response);                            

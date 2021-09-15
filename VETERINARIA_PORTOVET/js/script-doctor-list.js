@@ -33,7 +33,7 @@ function show(lista){
             + '<td>' + doctor.cedula +'</td>'          
             //Boton de consultar
             + '<td>'
-            + '<button onclick="retrieve('+ doctor.idDoctor +')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mdDoctor">Consultar</button>'
+            + '<button onclick="retrieve('+ doctor.idDoctor +')" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#mdDoctor">Consultar</button>'
             + '</td>'                        
         +'</tr>');
     });

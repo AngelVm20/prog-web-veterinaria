@@ -28,8 +28,8 @@
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Registro de Consulta</h4>
                 <hr class="my-4">
-                <form id="frmMascota" class="needs-validation" novalidate  method="GET">
-
+                <form id="frmConsulta" class="needs-validation" novalidate  method="GET">
+                  <input type="hidden" id="txtIdConsulta">
                 <div class="row g-3">
 
                     <div class="col-sm-6">
@@ -50,7 +50,7 @@
 
                     <div class="col-sm-6">
                         <label for="txtFecha" class="form-label">Fecha</label>
-                        <input type="date" value="10" min="1" class="form-control" id="txtFecha" required>                
+                        <input type="date"  class="form-control" id="txtFecha" required>                
                         <div id="errFecha" class="invalid-feedback">
                             Debe ingresar una fecha para el registro de la consulta.
                         </div>
@@ -73,7 +73,7 @@
                                 <th scope="col">Medicamento</th>
                                 <th scope="col">Dosis</th>
                                 <th scope="col">
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#mdReceta">Agregar</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#mdReceta">Agregar</button>
                                 </th>
                             </tr>
                         </thead>
@@ -81,7 +81,7 @@
                     </table>
                 </div>
                 <hr  class="my-4">
-                <button type="button" id="btnGuardar" class="w-100 btn btn-success btn-lg">Guardar</button>
+                <button type="button" id="btnGuardar" class="w-100 btn btn-secondary btn-lg">Guardar</button>
                 </form>
             </div>
         </div>
@@ -89,10 +89,11 @@
 
        
        <div class="modal fade" id="mdReceta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+        <input type="hidden" id="txtIdReceta">    
+        <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="lblNombreR">Receta</h5>
+                  <h5 class="modal-title" id="lblNombre">Receta</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -100,7 +101,7 @@
 
                   <div class="col-sm-12">
                     <label for="txtMedicamento" class="form-label">Medicamento</label>
-                    <input type="text" class="form-control" id="txtMedicamentoeholder=" value="" required>                
+                    <input type="text" class="form-control" id="txtMedicamento" placeholder="" value="" required>                
                         <div class="invalid-feedback">
                           Debe ingresar el medicamento para la mascota.
                         </div>
@@ -117,7 +118,7 @@
 
 
                 <div class="modal-footer">
-                  <button id="btnAgregar" type="button" class="btn btn-success" data-bs-dismiss="modal">Agregar</button>
+                  <button id="btnAgregar" type="button" class="btn btn-success" data-bs-dismiss="modal">Agregar Receta</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
               </div>
@@ -132,6 +133,6 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/form-validation.js"></script>
     <script src="js/main.js"></script>
-    <!-- aqui falta el .js de la consulta form-->
+    <script src="js/script-consulta-form.js"></script>
 </body>
 </html>
