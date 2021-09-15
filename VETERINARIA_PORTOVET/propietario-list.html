@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de un Propietario</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="imagenes/Logo Pestaña.jpg">  
+</head>
+<body>    
+    
+    <!--Menú de opciones -->
+    <header>        
+    </header>
+    <!-- Fin de menú de opciones -->
+    <main class="container">
+      <div class="py-5 text-center">        
+        <h2>Listado de propietarios</h2>
+        <p class="lead">Propietarios registrados.</p>        
+      </div>  
+      <section class="py-5 container">
+        <table class="table">
+          <thead>
+            <tr>                
+              <th scope="col">Nombre</th>
+              <th scope="col">Cedula</th>
+              <th scope="col">Celular</th>
+              <th scope="col">Correo</th> 
+              <th scope="col">
+                <a href="propietario-form.html" class="btn btn-sucess">Nuevo</a>
+              </th>               
+              <th scope="col"></th>                            
+            </tr>
+          </thead>
+          <tbody id="tblPropietario">              
+          </tbody>                        
+        </table>
+
+        <div class="modal fade" id="mdPropietario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="lblNombre"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">               
+                    <label>Nombre: </label>
+                    <span id="spNombre"></span><br>
+                    <label>Tipo:</label>
+                    <span id="spTipo"></span><br>
+                    <label>Edad:</label>
+                    <span id="spEdad"></span><br> 
+                    <label>Genero:</label>
+                    <span id="spGenero"></span><br>                                                                                
+                    <input type="hidden" id="txtIdMascota">          
+              </div>
+
+
+
+              <div class="modal-footer">
+                <button id="btnEliminar" type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </section>      
+    </main>
+    <footer>
+    </footer>
+    <!-- Vincula jQuery con el index.html -->
+    <script src="js/jquery-3.6.0.min.js"></script>       
+    <script src="js/main.js"></script> 
+    <script src="js/script-propietario-list.js"></script>
+</body>

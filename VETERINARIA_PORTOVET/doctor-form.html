@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de un Doctor</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="imagenes/Logo Pestaña.jpg">
+</head>
+<body>
+    <header>
+    </header>
+    
+    <main class="container">
+        <div class="py-5 text-center">
+            <h2> Nuevo Doctor </h2>
+            <p class="lead">Registro de un nuevo Doctor para la atencion al paciente. </p>
+            
+        </div>
+
+
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <img width="95%" src="https://previews.123rf.com/images/lan04ka/lan04ka1710/lan04ka171000104/88760904-doctor-en-c%C3%ADrculo-azul-sobre-fondo-blanco-m%C3%A9dico-de-ilustraci%C3%B3n-vectorial-en-estilo-plano-doctor-con.jpg" srcset="https://previews.123rf.com/images/lan04ka/lan04ka1710/lan04ka171000104/88760904-doctor-en-c%C3%ADrculo-azul-sobre-fondo-blanco-m%C3%A9dico-de-ilustraci%C3%B3n-vectorial-en-estilo-plano-doctor-con.jpg" >
+              </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3"> Registro de Doctor </h4>
+                <hr class="my-4">
+                <form action="doctor-list.html" id="frmDoctor" class="needs-validation" novalidate method="POST">
+                    <input type="hidden" id="txtIdDoctor">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="txtLicencia" class="form-label">Licencia</label>
+                            <input type="text" class="form-control" id="txtLicencia" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Debe ingresar una licencia para el Doctor.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="txtEspecialidad" class="form-label">Especialidad</label>
+                            <input type="text" class="form-control" id="txtEspecialidad" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Debe ingresar una especialidad para el Doctor.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="txtNombreD" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="txtNombreD" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Debe ingresar un Nombre para el Doctor.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="txtCedula" class="form-label">Cedula</label>
+                            <input type="text" class="form-control" id="txtCedula" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Debe ingresar una Cedula para el Doctor.
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <button type="submit" id="btnGuardar" class="w-100 btn btn-success btn-lg"> Guardar </button>
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+    <footer>
+    </footer>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/form-validation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script-doctor-form.js"></script>
+
+</body>
+</html>
