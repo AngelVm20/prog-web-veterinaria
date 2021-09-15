@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "propietario")
 public class Propietario extends Persona implements Serializable {
@@ -32,6 +34,7 @@ public class Propietario extends Persona implements Serializable {
 	private String correo;
 
 	@OneToMany(mappedBy = "propietario", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<mascota> mascotas;
 
 	public Propietario() {

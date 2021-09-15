@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "mascotas")
 public class mascota implements Serializable {
@@ -39,6 +41,7 @@ public class mascota implements Serializable {
 
 	@JoinColumn(name = "id_propietario", referencedColumnName = "id_propietario")
 	@ManyToOne
+	@JsonIgnore
 	private Propietario propietario;
 
 	@OneToOne(mappedBy = "mascotas")
@@ -93,6 +96,7 @@ public class mascota implements Serializable {
 		this.genero = genero;
 	}
 
+	@JsonIgnore
 	public Propietario getPropietario() {
 		return propietario;
 	}

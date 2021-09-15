@@ -16,6 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 @Entity
 @Table(name = "consulta")
 public class Consulta implements Serializable {
@@ -43,7 +46,9 @@ public class Consulta implements Serializable {
 	// mappedBy va el nombre del atributo de esta clase[Consulta] en la clase
 	// asociada[Receta]
 	@OneToMany(mappedBy = "consulta", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Receta> recetas;
+	
 
 	@JoinColumn(name = "id_mascota", nullable = false)
 	@OneToOne(fetch = FetchType.LAZY)
@@ -117,5 +122,15 @@ public class Consulta implements Serializable {
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
+
+	public List<Receta> getRecetas() {
+		return recetas;
+	}
+
+	public void setRecetas(List<Receta> recetas) {
+		this.recetas = recetas;
+	}
+	
+	
 
 }

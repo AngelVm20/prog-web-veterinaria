@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 @Entity
 @Table(name = "recetas")
 public class Receta implements Serializable {
@@ -32,6 +35,7 @@ public class Receta implements Serializable {
 
 	@JoinColumn(name = "id_consulta", referencedColumnName = "id_consulta") // se mapea una clave foranea
 	@ManyToOne
+	@JsonIgnore
 	private Consulta consulta;
 
 	public Receta(Integer idReceta) {
@@ -67,6 +71,7 @@ public class Receta implements Serializable {
 		this.dosis = dosis;
 	}
 
+	@JsonIgnore
 	public Consulta getConsulta() {
 		return consulta;
 	}
