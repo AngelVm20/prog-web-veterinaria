@@ -27,9 +27,9 @@ function save(){
 
     if(doctor.idDoctor == 0){
         $.ajax({        
-            type: "POST", //Verbo de HTTP a utilizar
-            url: "http://localhost:8080/doctor/create", //Dirección para realizar la petición HTTP
-            data: requestBody, //El contenido Body de la petición HTTP                
+            type: "POST", 
+            url: "http://localhost:8080/doctor/create", 
+            data: requestBody,               
             contentType : "application/json",
             crossDomain: true,
             dataType: "json",
@@ -45,9 +45,9 @@ function save(){
         //Update
         let id = doctor.idDoctor;
         $.ajax({        
-            type: "PUT", //Verbo de HTTP a utilizar
-            url: "http://localhost:8080/doctor/update/" + id, //Dirección para realizar la petición HTTP
-            data: requestBody, //El contenido Body de la petición HTTP                
+            type: "PUT", 
+            url: "http://localhost:8080/doctor/update/" + id, 
+            data: requestBody,              
             contentType : "application/json",
             crossDomain: true,
             dataType: "json",

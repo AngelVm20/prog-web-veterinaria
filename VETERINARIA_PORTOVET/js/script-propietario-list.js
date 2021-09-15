@@ -1,6 +1,6 @@
 function retrieve(id){
     alert("entra el retrieve mascotas");
-    $.ajax({        
+    $.ajax({  
         type: "GET", //Verbo de HTTP a utilizar
         url: "http://localhost:8080/mascota/retrieve/" + id, //Dirección para realizar la petición HTTP        
         contentType : "application/json",
@@ -20,6 +20,7 @@ function retrieve(id){
 			console.error(err);
 		}
     });
+    alert("sale el retrieve mascotas");
 } 
 
 

@@ -1,8 +1,8 @@
 function retrieve(id){
         
     $.ajax({        
-        type: "GET", //Verbo de HTTP a utilizar
-        url: "http://localhost:8080/doctor/retrieve/" + id, //Dirección para realizar la petición HTTP        
+        type: "GET", 
+        url: "http://localhost:8080/doctor/retrieve/" + id,         
         contentType : "application/json",
         dataType : "json",
         success : function(response){
@@ -24,7 +24,7 @@ function retrieve(id){
 }
 
 function show(lista){ 
-    $("#tblDoctor").empty(); //Eliminar el contenido del tbody de la tabla
+    $("#tblDoctor").empty(); 
     lista.forEach(doctor => {        
         $("#tblDoctor").append('<tr>'            
             + '<td>' + doctor.licencia +'</td>'
@@ -40,10 +40,10 @@ function show(lista){
 }
 
 function list(){
-    //Utilizar jQuery AJAX para enviar al Backend
+    
     $.ajax({        
-        type: "GET", //Verbo de HTTP a utilizar
-        url: "http://localhost:8080/doctor/list", //Dirección para realizar la petición HTTP        
+        type: "GET", 
+        url: "http://localhost:8080/doctor/list",       
         contentType : "application/json",
         dataType : "json",
         success : function(response){
@@ -67,8 +67,8 @@ function list(){
 function del(){
     let id = $("#txtIdDoctor").val();
     $.ajax({        
-        type: "DELETE", //Verbo de HTTP a utilizar
-        url: "http://localhost:8080/doctor/delete/" + id, //Dirección para realizar la petición HTTP        
+        type: "DELETE", 
+        url: "http://localhost:8080/doctor/delete/" + id,         
         contentType : "application/json",        
         success : function(response){
             console.log(response);                            

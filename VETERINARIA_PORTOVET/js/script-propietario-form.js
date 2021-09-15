@@ -1,7 +1,7 @@
 var mascotass=[];
 
 function list(){
-    $("#tblMascota").empty(); //Eliminar el contenido del tbody de la tabla    
+    $("#tblMascota").empty();    
     mascotass.forEach(mascota => {   
         $("#tblMascota").append('<tr>'   
             + '<td>' + mascota.nombre +'</td>'
@@ -50,12 +50,12 @@ function serializeForm(){
 
 
 function save(){    
-    //Creando el objeto
+    
     var propietario = serializeForm(); 
     console.log(propietario);   
     var requestBody = JSON.stringify(propietario);
     console.log(requestBody);    
-    //Utilizar jQuery AJAX para enviar al Backend
+    
 
     if(propietario.idPropietario==0){
         alert("si entra propietario create");
@@ -78,9 +78,9 @@ function save(){
         let id = propietario.idPropietario;
         alert("si entra update propietario ")
         $.ajax({        
-            type: "PUT", //Verbo de HTTP a utilizar
-            url: "http://localhost:8080/propietario/update/" + id, //Dirección para realizar la petición HTTP
-            data: requestBody, //El contenido Body de la petición HTTP                
+            type: "PUT", 
+            url: "http://localhost:8080/propietario/update/" + id,
+            data: requestBody,                 
             contentType : "application/json",
             crossDomain: true,
             dataType: "json",
